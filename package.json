@@ -1,0 +1,28 @@
+{
+  "name": "start-frontend-template",
+  "version": "1.0.0",
+  "description": "Gulp frontend start project",
+  "scripts": {
+    "dev": "gulp watch",
+    "build:dev": "gulp build",
+    "build:prod": "gulp build --prod"
+  },
+  "keywords": [
+    "gulp",
+    "js",
+    "sass",
+    "linters"
+  ],
+  "author": "Klubnika2009",
+  "license": "WTFPL",
+  "devDependencies": {
+    "@babel/core": "7.15.0",
+    "@babel/eslint-parser": "7.15.0",
+    "@babel/preset-env": "7.15.0",
+    "@babel/register": "7.15.3",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.24.1",
+    "gulp": "4.0.2"
+  }
+}
