@@ -11,6 +11,7 @@ const config = {
     pug: `${projectFolder}/pug`,
   },
   build: {
+    root: projectBuild,
     styles: `${projectBuild}/css`,
     scripts: `${projectBuild}/js`,
     fonts: `${projectBuild}/fonts`,
