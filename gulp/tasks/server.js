@@ -11,11 +11,11 @@ const server = (callback) => {
       config.src.styles,
       config.src.scripts,
       {
-        match: ["wp-content/themes/**/*.php"],
-        fn:    function (event, file) {
-            /** Custom event handler **/
-        }
-      }
+        match: config.build.images,
+        fn() {
+          this.reload();
+        },
+      },
     ],
     open: true,
     notify: true,
