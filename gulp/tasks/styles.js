@@ -38,4 +38,6 @@ export const stylesBuild = () => (
     .pipe(gulp.dest(config.build.styles))
 );
 
-export const stylesWatch = () => gulp.watch(config.src.styles, stylesBuild);
+export const stylesWatch = () => {
+  gulp.watch(config.src.styles, stylesBuild);
+};
