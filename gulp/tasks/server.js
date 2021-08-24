@@ -7,9 +7,9 @@ const server = (callback) => {
       baseDir: config.build.root,
     },
     files: [
-      config.src.html,
-      config.src.styles,
-      config.src.scripts,
+      config.watch.html,
+      config.watch.styles,
+      config.watch.scripts,
       {
         match: config.build.images,
         fn() {

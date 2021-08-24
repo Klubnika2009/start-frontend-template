@@ -7,6 +7,10 @@
     "build:dev": "gulp build",
     "build:prod": "gulp build --prod"
   },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.scss": "stylelint"
+  },
   "keywords": [
     "gulp",
     "js",
@@ -38,6 +42,12 @@
     "gulp-rename": "2.0.0",
     "gulp-sass": "5.0.0",
     "gulp-sourcemaps": "3.0.0",
-    "sass": "1.38.1"
+    "lint-staged": "11.1.2",
+    "sass": "1.38.1",
+    "stylelint": "13.13.1",
+    "stylelint-config-rational-order": "0.1.2",
+    "stylelint-config-standard": "22.0.0",
+    "stylelint-order": "4.1.0",
+    "stylelint-scss": "3.20.1"
   }
 }
