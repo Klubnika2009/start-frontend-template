@@ -1,0 +1,199 @@
+// ! Stop Scroll
+
+@mixin stop-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+// -------------------------------------------------------------------
+
+// * Flex center
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// -------------------------------------------------------------------
+
+// * Pseudo element
+
+@mixin pseudo($display: block, $position: absolute, $content: '') {
+  position: $position;
+
+  display: $display;
+
+  content: $content;
+}
+
+// ! Esample: @include pseudo(inline-block, relative, 'next');
+
+// -------------------------------------------------------------------
+
+// * Box shadow
+
+@mixin boxshadow($top, $left, $blur, $size, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $size $color;
+    -moz-box-shadow: inset $top $left $blur $size $color;
+    box-shadow: inset $top $left $blur $size $color;
+  }
+
+  @else {
+    -webkit-box-shadow: $top $left $blur $size $color;
+    -moz-box-shadow: $top $left $blur $size $color;
+    box-shadow: $top $left $blur $size $color;
+  }
+}
+// ! Exsample: @include boxshadow(1px, 1px, 3px, 0, $black, inset);
+// ! Exsample: @include boxshadow(1px, 1px, 3px, 0, $black);
+
+// -------------------------------------------------------------------
+
+// * Gradient
+
+@mixin linear-gradient($top-color, $bottom-color, $opacity) {
+  background: linear-gradient(to left, rgba($top-color, $opacity) 0%, rgba($bottom-color, $opacity) 100%);
+}
+
+// ! Exsample: @include linear-gradient(black, white, .8);
+
+// -------------------------------------------------------------------
+
+// * Clearfix
+
+@mixin clearfix() {
+  &::before &::after {
+    display: table;
+    clear: both;
+
+    content: '';
+  }
+}
+
+// -------------------------------------------------------------------
+
+// * Min Max
+
+@mixin min-max($min-width, $max-width, $padding) {
+  box-sizing: border-box;
+  min-width: $min-width;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $padding;
+}
+
+// -------------------------------------------------------------------
+
+// * Responsive Video
+
+@mixin adaptive-video() {
+  position: relative;
+
+  height: 0;
+  padding-bottom: 56.25%; /* nastavi vysku kontejneru na 16:9 (pokud 4:3 — dat 75%) */
+  overflow: hidden;
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// * Visually Hidden
+
+@mixin visually-hidden() {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(100%);
+}
+
+// -------------------------------------------------------------------
+
+// * Button
+
+@mixin link-button($btnWidth: 160px, $bg: $accent, $textColor: $black, $borderColor: transparent) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: $btnWidth;
+  padding: 10px 0;
+
+  color: $white;
+  font-size: size(12px);
+  font-family: $primary-font;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background-color: $bg;
+  border: 1px solid $borderColor;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+
+  appearance: none;
+  @content;
+
+  &:hover {
+    color: $white;
+
+    background-color: darken($accent, 20%);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// * Reset Button
+
+@mixin button-reset {
+  padding: 0;
+
+  color: inherit;
+  font: inherit;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+// -------------------------------------------------------------------
+
+// * Formule Responsive Text
+// ! Exsample: ($minSizePercent + ($maxSize - $minSize) * (100vw - $minWidthPx) / ($maxWidth - $minWidth)

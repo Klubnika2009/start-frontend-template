@@ -7,7 +7,7 @@ const server = (callback) => {
       baseDir: config.build.root,
     },
     files: [
-      config.watch.html,
+      config.watch.htmls,
       config.watch.styles,
       config.watch.scripts,
       {

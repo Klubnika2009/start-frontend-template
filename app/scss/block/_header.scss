@@ -1,0 +1,617 @@
+.header__wrap {
+  background-color: $black;
+}
+
+.header__container {
+  position: relative;
+
+  height: 60vh;
+  min-height: 500px;
+  padding-top: $size;
+
+  background-color: $deep;
+
+  border-bottom: 1px solid $bg-dark;
+}
+
+// Header Top
+.header-top {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $size;
+
+  background-color: $dark;
+  border-bottom: 1px solid $bg-dark;
+}
+
+.header-logo {
+  display: flex;
+  flex: 0 0 160px;
+
+  .logo-icon {
+    width: 100px;
+    height: 40px;
+  }
+
+  .header-logo__img {
+    @include flex-center;
+    width: $size;
+    height: $size;
+
+    .logo-img {
+      width: 30px;
+      height: 30px;
+
+      fill: $accent;
+    }
+  }
+}
+
+.header-logo__text {
+  display: flex;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.header-decoration {
+  flex: 1 0 0;
+
+  text-align: center;
+
+  &::before {
+    position: relative;
+    top: -4px;
+
+    display: inline-block;
+    width: 80px;
+    height: 1px;
+
+    background-color: $bg-dark;
+
+    content: '';
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.header-menu {
+  display: flex;
+  flex: 0 0 160px;
+  align-items: center;
+  justify-content: flex-end;
+  height: $size;
+  overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    flex: 0 0 1;
+  }
+
+  @media screen and (max-width: 480px) {
+    flex: 1 0 0;
+  }
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .header-contact__telefon {
+    font-size: 12px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+
+    span {
+      color: $accent;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex: 1 0 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+// Header Content
+.header-content {
+  height: 100%;
+}
+
+// Header Left
+.header-left {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: $size;
+  height: 100%;
+  padding-top: $size;
+
+  background-color: $dark;
+}
+
+.header-left__decoration {
+  @include flex-center;
+  flex: 1 0 0;
+  width: $size;
+
+  border-right: 1px solid $bg-dark;
+
+  &::before {
+    position: relative;
+    top: -4px;
+
+    display: inline-block;
+    width: 1px;
+    height: 80px;
+
+    background-color: $bg-dark;
+
+    content: '';
+  }
+}
+
+.header-left__kriz {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: $size;
+
+  border-right: 1px solid $bg-dark;
+
+  .header-left__kriz-icon {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &:nth-child(1) {
+      .icon-kriz {
+        width: 15px;
+        height: 15px;
+
+        fill: $bg-dark;
+      }
+    }
+
+    &:nth-child(3) {
+      .icon-kriz {
+        width: 15px;
+        height: 15px;
+
+        fill: $bg-dark;
+      }
+    }
+  }
+
+  .icon-kriz {
+    width: 20px;
+    height: 20px;
+
+    fill: $accent;
+  }
+}
+
+.header-left__share {
+  @include flex-center;
+  flex: 0 0 $size;
+
+  width: $size;
+  height: $size;
+
+  background-color: $bg-dark;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+
+  a {
+    @include flex-center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .share-icon {
+    width: 16px;
+    height: 16px;
+
+    transition: fill 0.3s ease-in;
+
+    fill: $accent;
+  }
+
+  &:hover {
+    background-color: $accent;
+
+    .share-icon {
+      fill: $bg-dark;
+    }
+  }
+}
+
+.header-submenu {
+  position: absolute;
+  z-index: 30;
+
+  @include flex-center;
+
+  width: 100%;
+  height: calc(100% - #{$size});
+  // margin-left: $size;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: rgba($black, 0.8);
+  visibility: hidden;
+}
+
+.header-submenu-navigation {
+  li {
+    margin: 15px;
+
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+// Header Slider
+.header-slider {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  padding-left: $size;
+  overflow: hidden;
+}
+
+// Header Slider Text
+.header-slider__text {
+  position: absolute;
+  z-index: 3;
+
+  width: calc(100% - #{$size});
+  height: 100%;
+  overflow: hidden;
+}
+
+.header-slider__text-slide {
+  @include flex-center;
+  position: relative;
+}
+
+.header-slider__text-slide-conteiner {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-slider__sub {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  margin-left: -50px;
+
+  .header-slider__sub-decoration {
+    display: flex;
+    flex: 1 0 0;
+    align-items: center;
+    margin-left: 15px;
+  }
+
+  .header-slider__sub-decoration-s {
+    @include flex-center;
+    flex: 0 0 50px;
+
+    .plus-icon-decoration {
+      width: 15px;
+      height: 15px;
+
+      fill: $accent;
+    }
+  }
+
+  p {
+    position: relative;
+
+    flex: 0 0 1;
+    margin-left: 3px;
+
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    background: linear-gradient(180deg, rgb(136, 136, 136) 0%, rgb(151, 151, 151) 20%, rgb(255, 255, 255) 30%, rgb(160, 160, 160) 80%, rgb(105, 105, 105) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    filter: drop-shadow(1px 1px 2px $black);
+  }
+
+  .header-slider__sub-info {
+    display: flex;
+    flex: 0 0 20px;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    margin-right: 4px;
+
+    background: linear-gradient(180deg, rgb(136, 136, 136) 0%, rgb(255, 255, 255) 30%, rgb(160, 160, 160) 80%, rgb(105, 105, 105) 100%);
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+    .info-icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.header-slider__title {
+  display: block;
+
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  background: linear-gradient(180deg, rgb(136, 136, 136) 0%, rgb(151, 151, 151) 20%, rgb(255, 255, 255) 30%, rgb(105, 105, 105) 80%, rgb(105, 105, 105) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  filter: drop-shadow(1px 1px 2px $black);
+
+  @media screen and (max-width: 768px) {
+    font-size: 44px;
+  }
+}
+
+.header-slider__stars {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .icon-star {
+    width: 20px;
+    height: 20px;
+
+    filter: drop-shadow(1px 1px 2px $black);
+
+    &:nth-child(2) {
+      margin: 15px 15px;
+    }
+  }
+}
+
+.header-slider__subtitle {
+  color: $white;
+  font-weight: 400;
+  font-size: 16px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+}
+
+.header-slider__description {
+  color: $accent;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+// Header Slider Img
+.header-slider__img {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .header-slider__img-slide {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .header-slider__img-slide-bg {
+    width: 100%;
+    height: 100%;
+
+    background-position: center center;
+    background-size: cover;
+
+    &::before {
+      position: absolute;
+      z-index: 2;
+
+      width: 105%;
+      height: 100%;
+
+      background: linear-gradient(180deg, rgba(56, 56, 56, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(37, 37, 37, 1) 100%);
+
+      content: '';
+    }
+  }
+}
+
+// Slider Bottom
+.header-slider__bottom {
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - #{$size});
+  height: $size;
+
+  //border-bottom: 1px solid $bg-dark;
+}
+
+// Slider Bottom  Button
+.slider-bottom__btns-wrap {
+  display: flex;
+}
+
+.slider-bottom__btns {
+  flex: 0 1 auto;
+
+  @media screen and (max-width: 768px) {
+    flex: 1 0 0;
+  }
+}
+
+.slider-bottom__btns-item {
+  @include flex-center;
+  width: $size;
+  height: $size;
+
+  background-color: $dark;
+  border-right: $border-light;
+
+  transition: all 0.3s ease-in;
+
+  &:last-child {
+    border-right: 2px solid $accent;
+  }
+
+  .btns-item-icon {
+    width: 16px;
+    height: 16px;
+
+    transition: all 0.3s ease-in;
+
+    fill: $accent;
+  }
+
+  &:hover {
+    background-color: $accent;
+
+    .btns-item-icon {
+      fill: $deep;
+    }
+  }
+}
+
+// Slider Bottom  Pagination
+.slider-bottom__pagination {
+  position: relative;
+
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+  height: $size;
+
+  .swiper-pagination {
+    @include flex-center;
+    position: absolute;
+    bottom: 0;
+
+    height: $size;
+  }
+
+  .swiper-pagination-bullet {
+    width: 5px;
+    height: 5px;
+
+    margin: 0 10px !important;
+
+    background-color: rgba($white, 0.5);
+    border-radius: 0;
+
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    position: relative;
+
+    background-color: rgba($accent, 0.7);
+
+    transition: all 0.3s ease-in;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      width: 20px;
+      height: 20px;
+
+      border: 1px solid rgba($accent, 0.7);
+      transform: translate(-50%, -50%);
+
+      content: '';
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+// Slider Bottom  Navigation
+.slider-bottom__navigation {
+  position: relative;
+
+  display: flex;
+  flex: 0 0 140px;
+  align-items: center;
+  justify-content: center;
+  height: $size;
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.slider-bottom__navigation-wrap {
+  position: relative;
+  top: 5px;
+
+  width: 100px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 32px;
+  height: 32px;
+
+  color: $accent;
+
+  background-color: $dark;
+  border: 1px solid $bg-dark;
+
+  &::after {
+    font-size: 15px;
+  }
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+}
