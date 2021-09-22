@@ -1,12 +1,12 @@
-import Swiper, {
-  Parallax, Mousewheel, Controller, Pagination, Navigation, Autoplay, EffectFade,
+import {
+  Swiper, Parallax, Mousewheel, Controller, Pagination, Navigation, Autoplay, EffectFade,
 } from 'swiper';
 import {
   gsap, Power2, Sine,
 } from 'gsap/all';
 import scrollUp from './toUp';
 
-// Swiper.use([Parallax, Mousewheel, Controller, Pagination, Navigation, Autoplay, EffectFade]);
+Swiper.use([Parallax, Mousewheel, Controller, Pagination, Navigation, Autoplay, EffectFade]);
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Ahoj JS');
@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const sliderImg = new Swiper('.header-slider__img', {
-    modules: [Parallax, Mousewheel, Controller, Autoplay, EffectFade],
     loop: false,
     speed: 1000,
     parallax: true,
@@ -37,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const sliderText = new Swiper('.header-slider__text', {
-    modules: [Parallax, Mousewheel, Controller, Autoplay, EffectFade, Pagination, Navigation],
     loop: false,
     speed: 1000,
     parallax: true,
